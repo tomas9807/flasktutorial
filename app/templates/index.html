@@ -1,8 +1,17 @@
-<html>
-    <head>
-        <title>{{ title }} - Microblog</title>
-    </head>
-    <body>
-        <h1>Hello, {{ user.username }}!</h1>
-    </body>
-</html>
+
+
+{% extends 'base.html' %}
+
+
+
+{% block title %} {% if title %} {{ title }} {% endif %} - {{super()}} {% endblock title %}
+
+
+{% block content %}
+{% for post in posts %}
+<h1>Hello, {{ post.author.username }}!</h1>
+<h3>{{ post.body }}!</h1>
+{% endfor %}
+
+
+{% endblock content %}
